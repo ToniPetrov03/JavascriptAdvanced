@@ -1,7 +1,3 @@
 function gcd(num1, num2) {
-    if (!num2) {
-        return num1;
-    }
-
-    return gcd(num2, num1 % num2);
+    return !num2 ? num1 : gcd(num2, num1 % num2);
 }
