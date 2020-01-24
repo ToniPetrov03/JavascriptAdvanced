@@ -9,4 +9,3 @@ function solve(arrOfArrays) {
         return arrOfArrays.map(x => x.reduce((a, b) => a + b, 0)).every((num, _, arr) => num === arr[0]);
     }
 }
-    
