@@ -1,8 +1,8 @@
 function solve(arrOfStrings) {
     const matrix = arrOfStrings.map(str => str.split(' ').map(Number));
-    const [areEqualDiagonals, sumOfDiagonal] = checkDiagonals(matrix);
+    const [areDiagonalsEqual, sumOfDiagonal] = checkDiagonals(matrix);
 
-    return areEqualDiagonals ? replaceMatrix(matrix, sumOfDiagonal).map(arr => arr.join(' ')).join('\n') : arrOfStrings.join('\n');
+    return areDiagonalsEqual ? replaceMatrix(matrix, sumOfDiagonal).map(arr => arr.join(' ')).join('\n') : arrOfStrings.join('\n');
 
     function checkDiagonals(matrix) {
         const sumDiagonals = matrix.reduce((sumDiagonals, nums, index) => {
