@@ -1,10 +1,9 @@
 function solve(steps, footprint, kmPerHour) {
     const stepsTime = new Array(steps).fill(footprint / (kmPerHour * 1000 / 3600));
 
-    let distance = 0;
-    let metersForRest = 500;
+    const travelTimeSec = stepsTime.reduce((travelData, stepTime) => {
+        let [time, distance, metersForRest] = travelData;
 
-    const travelTimeSec = stepsTime.reduce((time, stepTime) => {
         distance += footprint;
 
         if (distance > metersForRest) {
@@ -12,8 +11,10 @@ function solve(steps, footprint, kmPerHour) {
             time += 60;
         }
 
-        return time + stepTime;
-    }, 0);
+        time += stepTime;
+
+        return [time, distance, metersForRest];
+    }, [0, 0, 500]).slice(0, 1);
 
     const date = new Date(null);
     date.setSeconds(Math.round(travelTimeSec));

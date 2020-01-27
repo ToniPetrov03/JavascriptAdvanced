@@ -1,4 +1,6 @@
 function solve([num, ...operations]) {
+    let currentNum = num;
+
     const posibleOperations = {
         'chop': chop,
         'dice': dice,
@@ -10,7 +12,7 @@ function solve([num, ...operations]) {
     return operations.map(generateFunction).join('\n');
 
     function generateFunction(operation) {
-        return num = posibleOperations[operation](parseInt(num));
+        return currentNum = posibleOperations[operation](parseInt(currentNum));
     }
 
     function chop(number) {
