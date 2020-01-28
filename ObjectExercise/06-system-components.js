@@ -22,13 +22,11 @@ function solve(arr) {
             .keys(systemsRegister[a]).length || a
             .localeCompare(b))
         .map(system => {
-            return `${system}\n` +
-                Object
+            return `${system}\n` + Object
                     .keys(systemsRegister[system])
                     .sort((a, b) => systemsRegister[system][b].length - systemsRegister[system][a].length)
                     .map(component => {
-                        return `|||${component}\n` +
-                            systemsRegister[system][component]
+                        return `|||${component}\n` + systemsRegister[system][component]
                                 .map(subComponent => `||||||${subComponent}`)
                                 .join('\n');
                     })
