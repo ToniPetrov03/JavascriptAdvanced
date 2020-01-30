@@ -1,16 +1,17 @@
 function solve(...args) {
-    const argsInfo = args.reduce((argsInfo, arg) => {
-        const [typesOfArgs, tally] = argsInfo;
-        const type = typeof (arg);
+    const tally = args.reduce((tally, arg) => {
+        const type = typeof arg;
 
-        typesOfArgs.push(`${type}: ${arg}`);
+        console.log(`${type}: ${arg}`);
 
-        tally[type] ?  tally[type]++ : tally[type] = 1;
+        tally[type] ? tally[type]++ : tally[type] = 1;
 
-        return argsInfo;
-    }, [[], {}]);
+        return tally;
+    }, {});
 
-    const [typesOfArgs, tally] = argsInfo;
-
-    return [...typesOfArgs, ...Object.keys(tally).sort((a, b) => tally[b] - tally[a]).map(arg => `${arg}: ${tally[arg]}`)].join('\n');
+    Object
+        .keys(tally)
+        .sort((a, b) => tally[b] - tally[a])
+        .forEach(arg => console
+            .log(`${arg} = ${tally[arg]}`));
 }
