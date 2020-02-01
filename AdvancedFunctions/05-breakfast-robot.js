@@ -21,7 +21,6 @@ function solve() {
 
             if (comm === 'restock') {
                 quaOfEl[elOrMeal] += quantity;
-                return 'Success';
             } else if (comm === 'prepare') {
                 const currentQuaOfEl = {...quaOfEl};
 
@@ -34,14 +33,11 @@ function solve() {
                 }
 
                 quaOfEl = currentQuaOfEl;
-                return 'Success';
             } else {
                 return `protein=${quaOfEl.protein} carbohydrate=${quaOfEl.carbohydrate} fat=${quaOfEl.fat} flavour=${quaOfEl.flavour}`;
             }
+
+            return 'Success';
         };
     })();
 }
-
-console.log(solve()('restock carbohydrate 10'));
-console.log(solve()('restock flavour 10'));
-console.log(solve()('prepare apple 1'));
