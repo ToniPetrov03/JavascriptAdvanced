@@ -1,9 +1,9 @@
 function solve(arr) {
-    return arr.reduce((obj, food, index) => {
-        if (index % 2 === 0) {
-            obj[food] = parseInt(arr[index + 1]);
-        }
+    const obj = {};
 
-        return obj;
-    }, {});
+    for (let i = 0; i < arr.length; i += 2) {
+        obj[arr[i]] = parseInt(arr[i + 1]);
+    }
+
+    return obj;
 }

@@ -8,13 +8,7 @@ function solve([speed, area]) {
 
     const speedDifference = speed - areasLimitSpeed[area];
 
-    if (speedDifference > 0) {
-        if (speedDifference <= 20) {
-            return 'speeding';
-        } else if (speedDifference <= 40) {
-            return 'excessive speeding';
-        } else {
-            return 'reckless driving';
-        }
-    }
+    if (speedDifference > 40) return 'reckless driving';
+    if (speedDifference > 20) return 'excessive speeding';
+    if (speedDifference > 0) return 'speeding';
 }
