@@ -1,11 +1,11 @@
 function solve (num){
     let sum = num;
 
-    function addition(nextNum) {
+    function add(nextNum) {
         sum += nextNum;
-        return addition;
+        return add;
     }
 
-    addition.toString = () => sum;
-    return addition;
+    add.toString = () => sum;
+    return add;
 }
