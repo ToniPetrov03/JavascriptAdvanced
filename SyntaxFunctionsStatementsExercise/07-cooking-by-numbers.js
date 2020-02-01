@@ -33,5 +33,3 @@ function solve([num, ...operations]) {
         return number * 0.8;
     }
 }
-
-console.log(solve(['32', 'chop', 'chop', 'chop', 'chop', 'chop']))
