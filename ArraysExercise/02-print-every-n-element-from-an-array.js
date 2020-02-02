@@ -1,9 +1,7 @@
-function solve(array) {
-    return array.slice(0, -1).reduce((arr, el, index) => {
-        if (index % array.slice(-1) === 0) {
-            arr.push(el);
-        }
+function solve(arr) {
+    const step = parseInt(arr.slice(-1));
 
-        return arr;
-    }, []).join('\n');
+    for (let i = 0; i < arr.length - 1; i += step) {
+        console.log(arr[i]);
+    }
 }
