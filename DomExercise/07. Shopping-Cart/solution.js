@@ -1,6 +1,6 @@
 function solve() {
     const buttons = document.querySelectorAll('button');
-    [...buttons].forEach(button => button.addEventListener('click', onButtonClick));
+    buttons.forEach(button => button.addEventListener('click', onButtonClick));
 
     const textArea = document.querySelector('textarea');
 
@@ -19,7 +19,7 @@ function solve() {
         } else {
             textArea.textContent += `You bought ${[...list].join(', ')} for ${totalPrice.toFixed(2)}.`;
 
-            [...buttons].forEach(button => button.disabled = true);
+            buttons.forEach(button => button.disabled = true);
         }
     }
 }
