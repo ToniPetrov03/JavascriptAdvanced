@@ -1,5 +1,6 @@
 class Rat {
     rats = [];
+
     constructor(name) {
         this.name = name;
     }
