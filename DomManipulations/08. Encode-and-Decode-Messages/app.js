@@ -1,19 +1,17 @@
 function encodeAndDecodeMessages() {
-    document.querySelectorAll('button').forEach(button => button.addEventListener('click', onButtonClick));
-
+    const [encodeBtn, decodeBtn] = document.querySelectorAll('button');
     const [input, output] = document.querySelectorAll('textarea');
 
-    function onButtonClick(e) {
-        let message = input;
-        let n = 1;
+    encodeBtn.addEventListener('click', encodeMessages);
+    decodeBtn.addEventListener('click', decodeMessages);
 
-        if (e.target.textContent === 'Decode and read it') {
-            message = output;
-            n = -1;
-        }
-
-        output.value = [...message.value].map(char => String.fromCharCode(char.charCodeAt(0) + n)).join('');
+    function encodeMessages() {
+        output.value = [...input.value].map(char => String.fromCharCode(char.charCodeAt(0) + 1)).join('');
 
         input.value = '';
+    }
+
+    function decodeMessages() {
+        output.value = [...output.value].map(char => String.fromCharCode(char.charCodeAt(0) - 1)).join('');
     }
 }

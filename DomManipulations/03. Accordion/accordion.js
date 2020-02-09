@@ -1,12 +1,12 @@
 function toggle() {
     const button = document.querySelector('span');
-    const extra = document.getElementById('extra').style;
+    const extra = document.getElementById('extra');
 
     if (button.textContent === 'More') {
+        extra.style.display = 'block';
         button.textContent = 'Less';
-        extra.display = 'block';
     } else {
-        extra.display = 'none';
+        extra.style.display = 'none';
         button.textContent = 'More';
     }
 }
