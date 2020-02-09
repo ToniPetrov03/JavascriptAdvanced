@@ -7,16 +7,10 @@ function solve(arr) {
         return productsPrices;
     }, {});
 
-    return Object.keys(productsPrices).sort((a, b) => a.localeCompare(b)).reduce((output, product, index, arr) => {
+    return Object.keys(productsPrices).sort((a, b) => a.localeCompare(b)).map((product, index, arr) => {
         const [firstLetter] = product;
         const [previousFirstLetter] = arr[index - 1] || [];
 
-        if (firstLetter !== previousFirstLetter) {
-            output.push(firstLetter);
-        }
-
-        output.push(`  ${product}: ${productsPrices[product]}`);
-
-        return output;
-    }, []).join('\n');
+        return (firstLetter === previousFirstLetter ? '' : firstLetter + '\n') + `  ${product}: ${productsPrices[product]}`;
+    }).join('\n');
 }

@@ -9,16 +9,17 @@ function solve(cars) {
 
                 carsData.get(brand).set(model, num + currentNum);
             } else {
-               carsData.get(brand).set(model, num);
+                carsData.get(brand).set(model, num);
             }
         } else {
             carsData.set(brand, new Map([[model, num]]));
         }
 
         return carsData;
-    }, new Map()).forEach((models, brand) => {
-        console.log(brand);
+    }, new Map())
+        .forEach((models, brand) => {
+            console.log(brand);
 
-        models.forEach((num, model) => console.log(`###${model} -> ${num}`));
-    });
+            models.forEach((num, model) => console.log(`###${model} -> ${num}`));
+        });
 }

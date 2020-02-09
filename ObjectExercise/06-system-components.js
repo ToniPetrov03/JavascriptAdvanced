@@ -18,19 +18,17 @@ function solve(arr) {
     return Object
         .keys(systemsRegister)
         .sort((a, b) => Object
-            .keys(systemsRegister[b]).length - Object
-            .keys(systemsRegister[a]).length || a
-            .localeCompare(b))
+            .keys(systemsRegister[b]).length - Object.keys(systemsRegister[a]).length || a.localeCompare(b))
         .map(system => {
             return `${system}\n` + Object
-                    .keys(systemsRegister[system])
-                    .sort((a, b) => systemsRegister[system][b].length - systemsRegister[system][a].length)
-                    .map(component => {
-                        return `|||${component}\n` + systemsRegister[system][component]
-                                .map(subComponent => `||||||${subComponent}`)
-                                .join('\n');
-                    })
-                    .join('\n');
+                .keys(systemsRegister[system])
+                .sort((a, b) => systemsRegister[system][b].length - systemsRegister[system][a].length)
+                .map(component => {
+                    return `|||${component}\n` + systemsRegister[system][component]
+                        .map(subComponent => `||||||${subComponent}`)
+                        .join('\n');
+                })
+                .join('\n');
         })
         .join('\n');
 }

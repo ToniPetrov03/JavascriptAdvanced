@@ -1,7 +1,6 @@
 function solve(juices) {
-    const juicesData = juices.reduce((juicesData, juiceData) => {
+    const [juiceQuantity, order] = juices.reduce((juicesData, juiceData) => {
         const [juicesQuantity, order] = juicesData;
-
         const [juice, quantityStr] = juiceData.split(' => ');
         const quantity = parseInt(quantityStr);
 
@@ -17,8 +16,6 @@ function solve(juices) {
 
         return juicesData;
     }, [{}, []]);
-
-    const [juiceQuantity, order] = juicesData;
 
     return order.map(juice => `${juice} => ${Math.floor(juiceQuantity[juice] / 1000)}`).join('\n');
 }
