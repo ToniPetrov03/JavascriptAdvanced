@@ -8,7 +8,7 @@ class Extensible {
     extend(template) {
         Object.entries(template).forEach(([key, value]) => {
             if (typeof value === 'function') {
-               Extensible.prototype[key] = value;
+                Extensible.prototype[key] = value;
             } else {
                 this[key] = value;
             }

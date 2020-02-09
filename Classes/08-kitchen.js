@@ -48,7 +48,7 @@ class Kitchen {
         }, {});
 
         this.menu[meal] = {
-            products: products,
+            products,
             price
         };
 
@@ -56,11 +56,13 @@ class Kitchen {
     }
 
     showTheMenu() {
-        if (Object.keys(this.menu).length === 0) {
+        const menu = Object.keys(this.menu);
+
+        if (menu.length === 0) {
             return `Our menu is not ready yet, please come later...`;
         }
 
-        return Object.keys(this.menu).map(meal => `${meal} - $ ${this.menu[meal].price}`).join('\n') + '\n';
+        return menu.map(meal => `${meal} - $ ${this.menu[meal].price}`).join('\n') + '\n';
     }
 
     makeTheOrder(meal) {
@@ -68,17 +70,15 @@ class Kitchen {
             return `There is not ${meal} yet in our menu, do you want to order something else?`;
         }
 
-        // maybe mistake
-        const productsInStock = this.productsInStock;
-        const neededProducts = this.menu[meal].products;
+        const {products} = this.menu[meal];
 
         const hasRequiredProducts = Object
-            .keys(neededProducts)
+            .keys(products)
             .every(product => {
                 let hasProducts = false;
 
-                if (productsInStock[product] >= neededProducts[product]) {
-                    productsInStock[product] -= neededProducts[product];
+                if (this.productsInStock[product] >= products[product]) {
+                    this.productsInStock[product] -= products[product];
                     hasProducts = true;
                 }
 
@@ -90,7 +90,6 @@ class Kitchen {
         }
 
         this.budget += this.menu[meal].price;
-        this.productsInStock = productsInStock;
 
         return `Your order (${meal}) will be completed in the next 30 minutes and will cost you ${this.menu[meal].price}.`;
     }
