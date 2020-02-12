@@ -1,8 +1,20 @@
 const isOddOrEven = require('./02-even-or-odd');
-const expect = require('chai').expect;
+const assert = require('chai').assert;
 
 describe('isOddOrEven', function () {
-    it('should ', function () {
-        expect(isOddOrEven(13)).to.equal(undefined)
+    it('should return undefined with a number parameter', function () {
+        assert.equal(isOddOrEven(5), undefined, 'Function did not return the correct result');
+    });
+
+    it('should return undefined with a object parameter', function () {
+        assert.equal(isOddOrEven({'5': 5}), undefined, 'Function did not return the correct result');
+    });
+
+    it('should return correct result with an even length', function () {
+        assert.equal(isOddOrEven('five'), 'even', 'Function did not return the correct result');
+    });
+
+    it('should return correct result with an even length', function () {
+        assert.equal(isOddOrEven('five5'), 'odd', 'Function did not return the correct result');
     });
 });
