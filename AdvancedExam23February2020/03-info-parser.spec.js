@@ -2,7 +2,6 @@ let Parser = require("./03-info-parser.js");
 let assert = require("chai").assert;
 
 describe("MyTests", () => {
-
     it('should 1', function () {
         const a = new Parser('[ {"Nancy":"architect"},{"John":"developer"},{"Kate": "HR"} ]');
         const b = a.print();

@@ -6,7 +6,7 @@ class Article {
         this.likes = {};
     }
 
-    getterLikes() {
+    get likes() {
         const likes = this.likes;
 
         if (Object.keys(likes).length === 0) {

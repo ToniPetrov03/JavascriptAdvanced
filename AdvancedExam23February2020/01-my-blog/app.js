@@ -2,6 +2,8 @@ function solve() {
     document.querySelector('button').addEventListener('click', onButtonClick);
     const section = document.querySelectorAll('section')[1];
 
+    const articles = [];
+
     function onButtonClick(e) {
         e.preventDefault();
 
@@ -54,18 +56,9 @@ function solve() {
             const li = document.createElement('li');
             li.textContent = h1.textContent;
 
-            const lis = document.querySelectorAll('li');
 
-            if (lis.length > 0) {
-                if (li.textContent.charCodeAt(0) > lis[lis.length - 1].textContent.charCodeAt(0)) {
-                    ul.appendChild(li);
-                } else {
-                    ul.insertBefore(li, lis[lis.length - 1])
-                }
-            } else {
-                ul.appendChild(li);
-            }
 
+            ul.appendChild(li);
             article.remove();
         });
 
@@ -74,4 +67,3 @@ function solve() {
         });
     }
 }
-
