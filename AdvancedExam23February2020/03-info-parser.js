@@ -53,11 +53,3 @@ class Parser {
 }
 
 module.exports = Parser;
-let parser = new Parser();
- //console.log(parser.addEntries("Steven:tech-support Edd:administrator"));
- //console.log(parser.data);
-//console.log(parser.removeEntry("Kate"));
-// console.log(parser.data);
-// console.log("_".repeat(50));
-// console.log();
-console.log(parser.print());
