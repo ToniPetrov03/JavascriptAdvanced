@@ -79,14 +79,3 @@ class Library {
         }).join('\n') + '\n'
     }
 }
-//
-// let lib = new Library('Lib');
-//
-// lib.subscribe('Peter', 'normal');
-// lib.subscribe('John', 'special');
-//
-// lib.receiveBook('John', 'A Song of Ice and Fire', 'George R. R. Martin');
-// lib.receiveBook('Peter', 'Lord of the rings', 'J. R. R. Tolkien');
-// lib.receiveBook('John', 'Harry Potter', 'J. K. Rowling');
-//
-// console.log(lib.showInfo());
